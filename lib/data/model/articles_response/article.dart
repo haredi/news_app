@@ -2,7 +2,7 @@
 
 import 'package:news_app/data/model/sources_response/source.dart';
 
-class Articles {
+class Article {
   Source? source;
   String? author;
   String? title;
@@ -12,7 +12,7 @@ class Articles {
   String? publishedAt;
   String? content;
 
-  Articles({
+  Article({
       this.source, 
       this.author, 
       this.title, 
@@ -22,7 +22,7 @@ class Articles {
       this.publishedAt, 
       this.content,});
 
-  Articles.fromJson(dynamic json) {
+  Article.fromJson(dynamic json) {
     source = json['source'] != null ? Source.fromJson(json['source']) : null;
     author = json['author'];
     title = json['title'];

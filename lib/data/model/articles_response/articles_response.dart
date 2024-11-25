@@ -1,24 +1,32 @@
-import 'Articles.dart';
+import 'article.dart';
 
-class AeticlesResponse {
-  AeticlesResponse({
-      this.status, 
-      this.totalResults, 
-      this.articles,});
+class ArticlesResponse {
+  String? status;
+  String? code;
+  String? message;
+  num? totalResults;
+  List<Article>? articles;
 
-  AeticlesResponse.fromJson(dynamic json) {
+  ArticlesResponse({
+    this.status,
+    this.code,
+    this.message,
+    this.totalResults,
+    this.articles,
+  });
+
+  ArticlesResponse.fromJson(dynamic json) {
     status = json['status'];
+    code = json['code'];
+    message = json['message'];
     totalResults = json['totalResults'];
     if (json['articles'] != null) {
       articles = [];
       json['articles'].forEach((v) {
-        articles?.add(Articles.fromJson(v));
+        articles?.add(Article.fromJson(v));
       });
     }
   }
-  String? status;
-  num? totalResults;
-  List<Articles>? articles;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -29,5 +37,4 @@ class AeticlesResponse {
     }
     return map;
   }
-
 }
