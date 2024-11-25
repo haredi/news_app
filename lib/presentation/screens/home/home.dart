@@ -17,6 +17,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   late Widget selectedWidget;
+  String title=StringsManager.appTitle;
   @override
   void initState() {
     // TODO: implement initState
@@ -35,7 +36,7 @@ class _HomeState extends State<Home> {
               image: AssetImage(AssetsManager.pattern), fit: BoxFit.cover)),
       child: Scaffold(
         appBar: AppBar(
-          title: Text(StringsManager.appTitle),
+          title: Text(title),
         ),
         drawer: HomeDrawer(onDrawerItemClicked: onDrawerItemClicked),
         body: selectedWidget,
@@ -45,6 +46,7 @@ class _HomeState extends State<Home> {
 
   void onCategoryItemClicked(CategoryDM category) {
     selectedWidget = CategoryDetails(categoryDM: category,);
+    title=category.title;
     setState(() {});
   }
 
@@ -52,12 +54,14 @@ class _HomeState extends State<Home> {
     switch (item) {
       case MenuItem.categories:
         {
+          title=StringsManager.appTitle;
           selectedWidget = CategoriesTab(
             onCategoryItemClicked: onCategoryItemClicked,
           );
         }
       case MenuItem.settings:
         {
+          title='Settings';
           selectedWidget = const SettingsTab();
         }
     }

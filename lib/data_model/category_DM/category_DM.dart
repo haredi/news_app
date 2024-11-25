@@ -23,6 +23,6 @@ class CategoryDM{
     CategoryDM(id: ConstantsManager.businessBackEndId, title: StringsManager.business, bgColor: ColorsManager.brown, imagePath: AssetsManager.business),
     CategoryDM(id: ConstantsManager.entertainmentBackEndId, title: StringsManager.entertainment, bgColor: ColorsManager.blue, imagePath: AssetsManager.entertainment),
     CategoryDM(id: ConstantsManager.scienceBackEndId, title: StringsManager.science, bgColor: ColorsManager.yellow, imagePath: AssetsManager.science),
-    CategoryDM(id: ConstantsManager.techBackEndId, title: StringsManager.technology, bgColor: ColorsManager.green, imagePath: AssetsManager.technology),
+    CategoryDM(id: ConstantsManager.techBackEndId, title: StringsManager.technology, bgColor: ColorsManager.darkBlue, imagePath: AssetsManager.technology),
   ];
 }
