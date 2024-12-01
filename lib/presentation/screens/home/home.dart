@@ -7,6 +7,7 @@ import 'package:news_app/presentation/screens/home/home_drawer/home_drawer.dart'
 import 'package:news_app/presentation/screens/home/tabs/categories_tab/categories_tab.dart';
 import 'package:news_app/presentation/screens/home/tabs/category_details/category_details.dart';
 import 'package:news_app/presentation/screens/home/tabs/settings_tab/settings_tab.dart';
+import 'package:news_app/presentation/screens/news_search/news_search.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -17,7 +18,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   late Widget selectedWidget;
-  String title=StringsManager.appTitle;
+  String appBarTitle=StringsManager.appTitle;
   @override
   void initState() {
     // TODO: implement initState
@@ -36,7 +37,12 @@ class _HomeState extends State<Home> {
               image: AssetImage(AssetsManager.pattern), fit: BoxFit.cover)),
       child: Scaffold(
         appBar: AppBar(
-          title: Text(title),
+          title: Text(appBarTitle),
+          actions: [
+            IconButton(onPressed: () {
+              showSearch(context: context, delegate:NewsSearch() );
+            }, icon: const Icon(Icons.search,size: 35,))
+          ],
         ),
         drawer: HomeDrawer(onDrawerItemClicked: onDrawerItemClicked),
         body: selectedWidget,
@@ -46,7 +52,7 @@ class _HomeState extends State<Home> {
 
   void onCategoryItemClicked(CategoryDM category) {
     selectedWidget = CategoryDetails(categoryDM: category,);
-    title=category.title;
+    appBarTitle=category.title;
     setState(() {});
   }
 
@@ -54,14 +60,14 @@ class _HomeState extends State<Home> {
     switch (item) {
       case MenuItem.categories:
         {
-          title=StringsManager.appTitle;
+          appBarTitle=StringsManager.appTitle;
           selectedWidget = CategoriesTab(
             onCategoryItemClicked: onCategoryItemClicked,
           );
         }
       case MenuItem.settings:
         {
-          title='Settings';
+          appBarTitle='Settings';
           selectedWidget = const SettingsTab();
         }
     }

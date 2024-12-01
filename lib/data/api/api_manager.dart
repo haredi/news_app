@@ -23,8 +23,21 @@ class ApiManager {
   }
 
   static Future<ArticlesResponse> getArticles(String sourceId) async {
-    Uri url = Uri.https(
-        _baseUrl, _articleEndPoint, {"apiKey": _apiKey, "sources": sourceId});
+    Uri url = Uri.https(_baseUrl, _articleEndPoint, {
+      "apiKey": _apiKey,
+      "sources": sourceId,
+    });
+    http.Response serverResponse = await http.get(url);
+    var json = jsonDecode(serverResponse.body);
+    ArticlesResponse articlesResponse = ArticlesResponse.fromJson(json);
+    return articlesResponse;
+  }
+
+  static Future<ArticlesResponse> searchInArticles(String query) async {
+    Uri url = Uri.https(_baseUrl, _articleEndPoint, {
+      "apiKey": _apiKey,
+      "q": query,
+    });
     http.Response serverResponse = await http.get(url);
     var json = jsonDecode(serverResponse.body);
     ArticlesResponse articlesResponse = ArticlesResponse.fromJson(json);
