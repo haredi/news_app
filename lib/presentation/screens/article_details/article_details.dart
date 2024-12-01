@@ -15,8 +15,6 @@ class ArticleDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Article article=ModalRoute.of(context)?.settings.arguments as Article;
-    // int now=DateTime.now().hour;
-// int time= now - int.parse(article.publishedAt?.substring("")??'');
     return Container(
         decoration:const BoxDecoration(
             color: ColorsManager.white,
@@ -24,7 +22,7 @@ class ArticleDetails extends StatelessWidget {
                 image: AssetImage(AssetsManager.pattern), fit: BoxFit.cover)),
       child: Scaffold(
         appBar: AppBar(
-          title: Text(article.title ?? ''),
+          title: const Text('Article Details'),
         ),
 
         body: Padding(
@@ -33,9 +31,12 @@ class ArticleDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(5.r),
-                child: Image.network(article.urlToImage??''),
+              Hero(
+                tag: article.urlToImage??'',
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(5.r),
+                  child: Image.network(article.urlToImage??''),
+                ),
               ),
               Text(article.source?.name ?? '',style: GoogleFonts.poppins(fontSize: 10.sp, fontWeight: FontWeight.w400,color: Color(0xFF79828B),)),
               SizedBox(height: 2.h,),
@@ -52,24 +53,21 @@ class ArticleDetails extends StatelessWidget {
               ),
               Container(
                 alignment: Alignment.bottomRight,
-                child: TextButton(
+                child: TextButton.icon(
                   onPressed: () async{
+                    // await launchUrl(article.url??'');
 
-                    String webUrl = article.url??'';
-                    if (await canLaunchUrlString(webUrl)) {
-                      launchUrlString(webUrl, mode: LaunchMode.externalApplication);
-                    } else {
-                      print("Can't launch $webUrl");
+                    if (await canLaunchUrlString( article.url??'')) {
+                      launchUrlString( article.url??'', mode: LaunchMode.externalApplication);
                     }
 
-                     // if (!await launchUrl(
-                     //    article.url??'',
-                     //    mode: LaunchMode.externalApplication,
-                     //  )) {
-                     //
-                     //  }
 
-                }, child: Text('View Full Article', style: GoogleFonts.poppins(fontWeight: FontWeight.w500,fontSize: 14.sp,color:const Color(0xFF42505C))),),
+
+                },
+                  label: Text('View Full Article', style: GoogleFonts.poppins(fontWeight: FontWeight.w500,fontSize: 14.sp,color:const Color(0xFF42505C))),
+                  icon: const Icon(Icons.arrow_right),
+                  iconAlignment: IconAlignment.end,
+                ),
               )
 
 
@@ -79,4 +77,8 @@ class ArticleDetails extends StatelessWidget {
       ),
     );
   }
+  // Future<void> launchUrl(String url)async{
+  //  // Uri url1 =Uri.parse(url);
+  //   await launchUrl(url);
+  // }
 }

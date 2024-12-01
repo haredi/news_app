@@ -22,14 +22,17 @@ class ArticleItemWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(5.r),
-              child: CachedNetworkImage(
-                imageUrl: article.urlToImage ?? '',
-                placeholder: (context, url) =>
-                    Center(child: CircularProgressIndicator()),
-                errorWidget: (context, url, error) =>
-                    Center(child: Icon(Icons.error)),
+            Hero(
+              tag: article.urlToImage??'',
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(5.r),
+                child: CachedNetworkImage(
+                  imageUrl: article.urlToImage ?? '',
+                  placeholder: (context, url) =>
+                      Center(child: CircularProgressIndicator()),
+                  errorWidget: (context, url, error) =>
+                      Center(child: Icon(Icons.error)),
+                ),
               ),
             ),
             Text(
