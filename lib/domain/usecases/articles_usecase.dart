@@ -9,4 +9,10 @@ class GetArticlesUseCase{
   Future<Result<List<ArticleEntity>>> execute(String sourceId){
     return repository.getArticles(sourceId);
   }
+
+  Future<Result<List<ArticleEntity>>> executeSearch(String query){
+    return repository.searchInArticles(query);
+  }
+
+
 }

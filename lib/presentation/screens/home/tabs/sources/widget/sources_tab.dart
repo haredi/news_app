@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/data/model/sources_response/source.dart';
+import 'package:news_app/domain/entities/sources_entity.dart';
 import 'package:news_app/presentation/screens/home/tabs/articles/view/articles_view.dart';
 import 'package:news_app/presentation/screens/home/tabs/sources/widget/source__item.dart';
 
-class SourcesWidget extends StatefulWidget {
-  SourcesWidget({super.key, required this.sources,});
-  List<Source> sources;
+class SourcesTab extends StatefulWidget {
+  SourcesTab({super.key, required this.sources,});
+  List<SourceEntity> sources;
 
   @override
-  State<SourcesWidget> createState() => _SourcesWidgetState();
+  State<SourcesTab> createState() => _SourcesTabState();
 }
 
-class _SourcesWidgetState extends State<SourcesWidget> {
+class _SourcesTabState extends State<SourcesTab> {
   int selectedIndex=0;
 
   @override

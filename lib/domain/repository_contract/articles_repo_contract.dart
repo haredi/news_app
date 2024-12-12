@@ -1,6 +1,8 @@
-import 'package:news_app/data/model/articles_response/article.dart';
+import 'package:news_app/domain/entities/article_entity.dart';
 import 'package:news_app/result.dart';
 
 abstract class ArticlesRepository{
-  Future<Result<List<Article>>> getArticles(String sourceId);
+  Future<Result<List<ArticleEntity>>> getArticles(String sourceId);
+  Future<Result<List<ArticleEntity>>> searchInArticles(String query);
+
 }

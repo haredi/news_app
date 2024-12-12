@@ -1,5 +1,5 @@
-class SourcesEntity{
+class SourceEntity{
   String? name;
   String? id;
-  SourcesEntity({this.name, this.id});
+  SourceEntity({this.name, this.id});
 }

@@ -1,3 +1,5 @@
+import '../../../domain/entities/sources_entity.dart';
+
 class Source {
   Source({
       this.id, 
@@ -35,6 +37,10 @@ class Source {
     map['language'] = language;
     map['country'] = country;
     return map;
+  }
+
+  SourceEntity toSourceEntity(){
+    return SourceEntity(name: name,id: id);
   }
 
 }

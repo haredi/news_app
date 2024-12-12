@@ -5,10 +5,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/config/theme/app_style.dart';
 import 'package:news_app/core/utils/routes_manager.dart';
 import 'package:news_app/data/model/articles_response/article.dart';
+import 'package:news_app/domain/entities/article_entity.dart';
 
-class ArticleItemWidget extends StatelessWidget {
-  ArticleItemWidget({super.key, required this.article});
-  Article article;
+class ArticleItem extends StatelessWidget {
+  ArticleItem({super.key, required this.article});
+  ArticleEntity article;
   @override
   Widget build(BuildContext context) {
     return InkWell(

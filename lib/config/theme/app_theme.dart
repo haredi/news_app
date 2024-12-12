@@ -7,7 +7,7 @@ import '../../core/utils/colors_manager.dart';
 class AppTheme{
    static final ThemeData light=ThemeData(
      appBarTheme: AppBarTheme(
-       iconTheme: IconThemeData(
+       iconTheme: const IconThemeData(
          color: ColorsManager.white
        ),
        backgroundColor: ColorsManager.green,
