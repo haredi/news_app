@@ -25,7 +25,8 @@ class CategoriesTab extends StatelessWidget {
                 crossAxisCount: 2,
                 mainAxisSpacing: 20.h,
                 crossAxisSpacing: 25.w),
-            itemBuilder: (context, index) => InkWell(
+            itemBuilder: (context, index) =>
+                InkWell(
                 onTap: () {
                   onCategoryItemClicked(categoriesList[index] );
                 },

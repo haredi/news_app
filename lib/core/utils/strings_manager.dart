@@ -1,5 +1,6 @@
 class StringsManager{
   static const String appTitle='News App';
+  static const String settingsTitle='Settings';
   static const String drawerTitle='News App!';
   static const String sports='Sports';
   static const String general='General';

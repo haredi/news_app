@@ -1,6 +1,5 @@
-
-
 import 'package:news_app/data/model/sources_response/source.dart';
+import 'package:news_app/domain/entities/article_entity.dart';
 
 class Article {
   Source? source;
@@ -13,14 +12,15 @@ class Article {
   String? content;
 
   Article({
-      this.source, 
-      this.author, 
-      this.title, 
-      this.description, 
-      this.url, 
-      this.urlToImage, 
-      this.publishedAt, 
-      this.content,});
+    this.source,
+    this.author,
+    this.title,
+    this.description,
+    this.url,
+    this.urlToImage,
+    this.publishedAt,
+    this.content,
+  });
 
   Article.fromJson(dynamic json) {
     source = json['source'] != null ? Source.fromJson(json['source']) : null;
@@ -47,5 +47,14 @@ class Article {
     map['content'] = content;
     return map;
   }
-
+  ArticleEntity toArticleEntity() {
+    return ArticleEntity(
+      content: content,
+      description: description,
+      publishedAt: publishedAt,
+      source: source?.toSourceEntity(),
+      url: url,
+      urlToImage: urlToImage,
+    );
+  }
 }

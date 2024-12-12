@@ -1,3 +1,5 @@
+import 'package:news_app/domain/entities/sources_entity.dart';
+
 import 'source.dart';
 
 class SourcesResponse {
@@ -33,4 +35,6 @@ class SourcesResponse {
     }
     return map;
   }
+
+
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/config/theme/app_theme.dart';
-import 'package:news_app/core/utils/assets_manager.dart';
 import 'package:news_app/core/utils/routes_manager.dart';
 
 class MyApp extends StatelessWidget {
