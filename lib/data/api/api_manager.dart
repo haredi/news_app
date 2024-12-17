@@ -17,7 +17,8 @@ class ApiManager {
 
    Future<Result<List<Source>>> getSources(
       String categoryId) async {
-    Uri url = Uri.https(_baseUrl, _sourcesEndPoint, {
+    Uri url = Uri.https(_baseUrl, _sourcesEndPoint,
+        {
       "apiKey": _apiKey,
       "category": categoryId,
     });
