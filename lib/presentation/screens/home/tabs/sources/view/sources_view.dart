@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/utils/di.dart';
+import 'package:news_app/core/utils/dependency.dart';
 import 'package:news_app/core/widgets/loading_widget.dart';
 import 'package:news_app/core/widgets/ui_error_widget.dart';
 import 'package:news_app/data_model/category_DM/category_DM.dart';
@@ -7,6 +7,7 @@ import 'package:news_app/presentation/screens/home/tabs/sources/viewModel/source
 import 'package:provider/provider.dart';
 
 import '../../../../../../common/base_state.dart';
+import '../../../../../../core/utils/di.dart';
 import '../../../../../../data/model/sources_response/source.dart';
 import '../widget/sources_tab.dart';
 
@@ -19,7 +20,7 @@ class SourcesView extends StatefulWidget {
 }
 
 class _SourcesViewState extends State<SourcesView> {
-  var viewModel=SourcesViewModel(sourcesUseCase: getSourcesUseCase());
+  var viewModel=getIt<SourcesViewModel>();
   @override
   void initState() {
     // TODO: implement initState

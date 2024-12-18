@@ -1,12 +1,14 @@
+import 'package:injectable/injectable.dart';
 import 'package:news_app/data/data_source-contract/articles_datasource.dart';
 import 'package:news_app/data/model/articles_response/article.dart';
 import 'package:news_app/domain/entities/article_entity.dart';
 import 'package:news_app/result.dart';
 
 import '../../domain/repository_contract/articles_repo_contract.dart';
-
+@Injectable(as:ArticlesRepository )
 class ArticlesRepositoryImpl extends ArticlesRepository {
   ArticlesDatasource datasource;
+  @factoryMethod
   ArticlesRepositoryImpl({required this.datasource});
   @override
   Future<Result<List<ArticleEntity>>> getArticles(String sourceId) async {

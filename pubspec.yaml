@@ -42,6 +42,9 @@ dependencies:
   url_launcher: ^6.3.1
   provider: ^6.1.2
   either_dart: ^1.0.0
+  injectable:
+  # add get_it
+  get_it:
 
 dev_dependencies:
   flutter_test:
@@ -53,6 +56,9 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
+  injectable_generator:
+    # add build runner if not already added
+  build_runner:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
