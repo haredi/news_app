@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/config/theme/app_style.dart';
-import 'package:news_app/core/utils/di.dart';
+import 'package:news_app/core/utils/dependency.dart';
 import 'package:news_app/domain/entities/article_entity.dart';
 import 'package:news_app/presentation/screens/home/tabs/articles/viewModel/articles_viewModel.dart';
 import 'package:provider/provider.dart';

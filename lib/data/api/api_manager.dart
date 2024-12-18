@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:either_dart/either.dart';
 import 'package:http/http.dart' as http;
+import 'package:injectable/injectable.dart';
 import 'package:news_app/data/model/articles_response/article.dart';
 import 'package:news_app/data/model/articles_response/articles_response.dart';
 import 'package:news_app/data/model/sources_response/source.dart';
@@ -9,6 +10,7 @@ import 'package:news_app/data/model/sources_response/sources_response.dart';
 import 'package:news_app/result.dart';
 
 //https://newsapi.org/v2/top-headlines/sources?apiKey=
+@singleton
 class ApiManager {
   static const String _baseUrl = 'newsapi.org';
   static const String _sourcesEndPoint = '/v2/top-headlines/sources';

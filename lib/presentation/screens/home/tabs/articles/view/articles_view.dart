@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/core/utils/dependency.dart';
 import 'package:news_app/core/utils/di.dart';
 import 'package:news_app/core/widgets/loading_widget.dart';
 import 'package:news_app/core/widgets/ui_error_widget.dart';
@@ -24,7 +25,7 @@ class ArticlesView extends StatefulWidget {
 }
 
 class _ArticlesViewState extends State<ArticlesView> {
-  var viewModel = ArticlesViewModel(articlesUseCase: getArticlesUseCase());
+  var viewModel = getIt<ArticlesViewModel>();
 
   @override
   void initState() {

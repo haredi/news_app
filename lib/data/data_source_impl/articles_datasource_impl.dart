@@ -1,10 +1,12 @@
+import 'package:injectable/injectable.dart';
 import 'package:news_app/data/api/api_manager.dart';
 import 'package:news_app/data/data_source-contract/articles_datasource.dart';
 import 'package:news_app/data/model/articles_response/article.dart';
 import 'package:news_app/result.dart';
-
+@Injectable(as: ArticlesDatasource)
 class ArticlesApiDatasourceImpl extends ArticlesDatasource{
   ApiManager apiManager;
+  @factoryMethod
   ArticlesApiDatasourceImpl({required this.apiManager});
   @override
   Future<Result<List<Article>>> getArticles(String sourceId) async{
